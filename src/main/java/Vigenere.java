@@ -1,14 +1,23 @@
 import java.util.Scanner;
-
+//work in progress - NOT SURE HOW TO PROCEED
 public class Vigenere {
+    char msg[] = //{characters of message}
+	char key[] = //{characters of key}
+    int msg_Length = msg.length;
+	char newKey[] = char[msg_Length];
+	char encrypted_message[] = char[msg_Length];
+	char decrypted_message[] = char[msg_Length];
+		
     public static String encryptVigenere(String message, String key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+    for(i = 0; i < msg_Length; ++i){
+		encrypted_message[i] = (char)(((msg[i] + newKey[i]) % 26) + 'A');
+    }
     }
 
     public static String decryptVigenere(String message, String key) {
-        return message;
-        // REPLACE THIS WITH YOUR CODE
+        for(i = 0; i < msg_Length; ++i){
+			decrypted_message[i] = (char)((((decrypted_message[i] - newKey[i]) + 26) % 26) + 'A');
+        }
     }
 
 
