@@ -4,11 +4,11 @@ public class Vigenere {
 
     public static String decryptVigenere(String message, String key)
     {
-        String encrypt_message = message;
+        String decrypt_message = message.toUpperCase();
         String new_string = "";
         int key_index = 0;
-        for(int counter = 0; counter<encrypt_message.length(); counter++){
-            char n = encrypt_message.charAt(counter);
+        for(int counter = 0; counter<decrypt_message.length(); counter++){
+            char n = decrypt_message.charAt(counter);
             if (n >= 'A' && n <= 'z'){
                 int x = (n - key.charAt(key_index) + 26 ) % 26;
                 x += 'A';
@@ -24,7 +24,7 @@ public class Vigenere {
         return new_string;
     }
     public static String encryptVigenere(String message, String key) {
-        String encrypt_message = message;
+        String encrypt_message = message.toUpperCase();
         String new_string = "";
         int key_index = 0;
         for(int counter = 0; counter<encrypt_message.length(); counter++){
