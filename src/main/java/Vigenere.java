@@ -2,18 +2,22 @@ import java.util.Scanner;
 //work in progress - NOT SURE HOW TO PROCEED
 public class Vigenere {
 
-    public static String decryptVigenere(String message, String key) {
+    public static String decryptVigenere(String message, String key)
+    {
         String encrypt_message = message;
         String new_string = "";
         int key_index = 0;
         for(int counter = 0; counter<encrypt_message.length(); counter++){
             char n = encrypt_message.charAt(counter);
             if (n >= 'A' && n <= 'z'){
-                n = (char) (n - key.charAt(key_index));
+                int x = (n - key.charAt(key_index) + 26 ) % 26;
+                x += 'A';
                 key_index++;
                 if(key_index >= key.length()){
                     key_index = 0;
                 }
+                new_string += (char) (x);
+            } else{
                 new_string += n;
             }
         }
@@ -26,11 +30,14 @@ public class Vigenere {
         for(int counter = 0; counter<encrypt_message.length(); counter++){
             char n = encrypt_message.charAt(counter);
             if (n >= 'A' && n <= 'z'){
-                n = (char) (n + key.charAt(key_index));
+                int x = (n + key.charAt(key_index)) % 26;
+                x += 'A';
                 key_index++;
                 if(key_index >= key.length()){
                     key_index = 0;
                 }
+                new_string += (char) (x);
+            } else{
                 new_string += n;
             }
         }
